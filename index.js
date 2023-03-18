@@ -38,25 +38,28 @@ app.post("/api/post", (req, res) => {
 });
 
 let nload = async (userMessageHTML) => {
-  const completion = await openai.createCompletion({
-    model: "code-davinci-002",
-    prompt:
-      "### SQL tables, with their properties: "+userMessageHTML,
+  try {
+    const completion = await openai.createCompletion({
+      model: "code-davinci-002",
+      prompt: "### SQL tables, with their properties: " + userMessageHTML,
 
-    temperature: 0,
+      temperature: 0,
 
-    max_tokens: 150,
+      max_tokens: 150,
 
-    top_p: 1.0,
+      top_p: 1.0,
 
-    frequency_penalty: 0.0,
+      frequency_penalty: 0.0,
 
-    presence_penalty: 0.0,
+      presence_penalty: 0.0,
 
-    stop: ["#", ";"],
-  });
+      stop: ["#", ";"],
+    });
 
-  return completion.data.choices[0].text;
+    return completion.data.choices[0].text;
+  } catch (error) {
+    throw error;
+  }
 };
 
 // nload().then((value) => {
