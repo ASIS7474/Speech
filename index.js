@@ -13,7 +13,7 @@ const { response } = require("express");
 const { json } = require("body-parser");
 
 const configuration = new Configuration({
-  apiKey: "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",
+  apiKey: "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",
 });
 
 const openai = new OpenAIApi(configuration);
