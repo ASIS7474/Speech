@@ -13,6 +13,7 @@ const { response } = require("express");
 const { json } = require("body-parser");
 
 const configuration = new Configuration({
+  organization: "org-apexon",
   apiKey: "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",
 });
 
